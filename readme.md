@@ -2,7 +2,9 @@
 
 > A tiny (133B) and [fast](#benchmarks) utility to generate random IDs of fixed length
 
-***Fast object IDs.*** Generate randomized output strings of fixed length using lowercase alphanumeric characters (`a-z0-9`).
+_**Fast object IDs.** Available for Node.js and the browser._<br>Generate randomized output strings of fixed length using lowercase alphanumeric characters (`a-z0-9`).
+
+> **Notice:** Please note that this is not a cryptographically secure (CSPRNG) generator.
 
 Additionally, this module is delivered as:
 
@@ -46,7 +48,7 @@ Default: `8`
 
 Then length of the output string.
 
-> **Important:** Your risk of collisions decrease with longer strings!
+> **Important:** Your risk of collisions decreases with longer strings!
 
 
 ## Benchmarks
