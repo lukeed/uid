@@ -73,8 +73,8 @@ test('unique', t => {
 	t.not(foid(), foid(), '~> single');
 
 	let items = new Set();
-	for (let i=1e6; i--;) items.add(foid(8));
-	t.is(items.size, 1e6, '~> 1,000,000 uniques (length=8)');
+	for (let i=1e6; i--;) items.add(foid());
+	t.is(items.size, 1e6, '~> 1,000,000 uniques');
 
 	t.end();
 });

@@ -5,6 +5,12 @@ const Hash = require('hashids/cjs');
 const nanoid = require('nanoid');
 const foid = require('../dist');
 
+const size_11 = {
+	'hashids/fixed': new Hash('', 11),
+	'nanoid': nanoid.bind(nanoid, 11),
+	'foid': foid.bind(foid, 11),
+};
+
 const size_16 = {
 	'hashids/fixed': new Hash('', 16),
 	'nanoid': nanoid.bind(nanoid, 16),
@@ -75,6 +81,7 @@ function runner(group, size) {
 
 // ---
 
+runner(size_11, 11);
 runner(size_16, 16);
 runner(size_25, 25);
 runner(size_36, 36);
