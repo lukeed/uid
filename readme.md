@@ -1,6 +1,6 @@
 # foid [![build status](https://badgen.net/github/status/lukeed/foid)](https://github.com/lukeed/foid/actions) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/foid)](https://codecov.io/gh/lukeed/foid)
 
-> A tiny (133B) and [fast](#benchmarks) utility to generate random IDs of fixed length
+> A tiny (134B) and [fast](#benchmarks) utility to generate random IDs of fixed length
 
 _**Fast object IDs.** Available for Node.js and the browser._<br>Generate randomized output strings of fixed length using lowercase alphanumeric characters (`a-z0-9`).
 
@@ -24,14 +24,14 @@ $ npm install --save foid
 ```js
 import foid from 'foid';
 
-// length = 8 (default)
-foid(); //=> 'mrizobl6'
-foid(); //=> 'kedrecv4'
+// length = 11 (default)
+foid(); //=> 'fsm2vsgo1pr'
+foid(); //=> 'gf34sezvoh6'
 
 // customize length
-foid(11); //=> 'fsm2vsgo1pr'
 foid(16); //=> 'zbb6cc3ay26omrdz'
 foid(25); //=> 'lljjmo3f39rnjudsgqvzta1rb'
+foid(32); //=> 'yrfiw88qlq1fgpm40lguz6u43gksfj4a'
 ```
 
 
@@ -44,7 +44,7 @@ Creates a new random identifer of fixed length.
 
 #### length
 Type: `Number`<br>
-Default: `8`
+Default: `11`
 
 Then length of the output string.
 
@@ -60,7 +60,6 @@ Validation (length = 16):
   ✔ hashids/fixed    (example: "LkQWjnegYbwZ1p0G")
   ✔ nanoid           (example: "jJBdWxGRNQTG6v5R")
   ✔ foid             (example: "lsytt7o8vzzf0hv3")
-
 Benchmark (length = 16):
   hashids/fixed    x   344,442 ops/sec ±1.98% (97 runs sampled)
   nanoid           x   456,787 ops/sec ±0.24% (94 runs sampled)
@@ -72,7 +71,6 @@ Validation (length = 25):
   ✔ hashids/fixed    (example: "r9JOyLkQWjnegYbwZ1p0GDXNm")
   ✔ nanoid           (example: "NvNGOwgSW47nnCtH97Imcwe2m")
   ✔ foid             (example: "grgh8xbpklnyse1x5foak5r7i")
-
 Benchmark (length = 25):
   cuid             x   161,450 ops/sec ±1.29% (89 runs sampled)
   hashids/fixed    x   338,993 ops/sec ±2.76% (96 runs sampled)
@@ -87,7 +85,6 @@ Validation (length = 36):
   ✔ @lukeed/uuid     (example: "8e2929d4-0374-467d-a6a7-d9a969c78c8d")
   ✔ nanoid           (example: "Z-6-Rk8QtOM6iAaZ46THD0-_HqigXnnIbso1")
   ✔ foid             (example: "lfehy3buzytmv6dgt208upz1ytniti5do2ko")
-
 Benchmark (length = 36):
   uuid/v1          x 1,503,104 ops/sec ±0.28% (93 runs sampled)
   uuid/v4          x   338,516 ops/sec ±0.72% (88 runs sampled)

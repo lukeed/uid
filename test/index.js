@@ -10,7 +10,7 @@ test('exports', t => {
 test('returns', t => {
 	let output = foid();
 	t.is(typeof output, 'string', 'returns a string');
-	t.is(output.length, 8, '~> has 8 characters (default)');
+	t.is(output.length, 11, '~> has 11 characters (default)');
 	t.end();
 });
 
@@ -73,7 +73,7 @@ test('unique', t => {
 	t.not(foid(), foid(), '~> single');
 
 	let items = new Set();
-	for (let i=1e6; i--;) items.add(foid());
+	for (let i=1e6; i--;) items.add(foid(8));
 	t.is(items.size, 1e6, '~> 1,000,000 uniques (length=8)');
 
 	t.end();
