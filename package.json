@@ -1,6 +1,6 @@
 {
   "name": "foid",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": "lukeed/foid",
   "description": "A tiny (134B) and fast utility to generate random IDs of fixed length",
   "unpkg": "dist/index.min.js",
