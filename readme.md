@@ -57,52 +57,49 @@ Then length of the output string.
 
 ```
 Validation (length = 11):
-  ✔ hashids/fixed    (example: "QWjnegYbwZ1")
-  ✔ nanoid           (example: "bg7EJCm_Nqr")
-  ✔ foid             (example: "20075xrt1pu")
+  ✔ hashids/fixed        (example: "QWjnegYbwZ1")
+  ✔ nanoid/non-secure    (example: "o9SPLfEtDMB")
+  ✔ nanoid               (example: "BbgkcjUV8fg")
+  ✔ foid                 (example: "5j2t6tmjboz")
 Benchmark (length = 11):
-  hashids/fixed    x   358,492 ops/sec ±2.03% (98 runs sampled)
-  nanoid           x   455,771 ops/sec ±0.23% (98 runs sampled)
-  foid             x 4,917,033 ops/sec ±0.44% (93 runs sampled)
-
-
-Validation (length = 16):
-  ✔ hashids/fixed    (example: "LkQWjnegYbwZ1p0G")
-  ✔ nanoid           (example: "AAT4FkNDn-aHq85-")
-  ✔ foid             (example: "o35hr3fodrvl08wd")
-Benchmark (length = 16):
-  hashids/fixed    x   359,151 ops/sec ±0.20% (97 runs sampled)
-  nanoid           x   475,616 ops/sec ±0.22% (95 runs sampled)
-  foid             x 3,622,540 ops/sec ±0.16% (91 runs sampled)
+  hashids/fixed        x    358,452 ops/sec ±2.04% (95 runs sampled)
+  nanoid/non-secure    x  4,855,107 ops/sec ±0.33% (96 runs sampled)
+  nanoid               x    493,479 ops/sec ±0.42% (96 runs sampled)
+  foid                 x  5,034,240 ops/sec ±0.24% (94 runs sampled)
 
 
 Validation (length = 25):
-  ✔ cuid             (example: "ck7bmh0fy0000ig7c516i9dx3")
-  ✔ hashids/fixed    (example: "r9JOyLkQWjnegYbwZ1p0GDXNm")
-  ✔ nanoid           (example: "xzNUa5jeWSUFAB9jzmaZpCMaV")
-  ✔ foid             (example: "3q87leuz1iiu4easjqsrgcj5i")
+  ✔ cuid                 (example: "ck7dod7qj0000ws7c5cmmh5mc")
+  ✔ hashids/fixed        (example: "r9JOyLkQWjnegYbwZ1p0GDXNm")
+  ✔ nanoid/non-secure    (example: "aIrSCUwGMsMSZ-1xnSB8myg0X")
+  ✔ nanoid               (example: "51jS9SkdKG5lXW5Yg3L4juzuT")
+  ✔ foid                 (example: "k0gd21k1p2y7qgwmgrgspo4uy")
 Benchmark (length = 25):
-  cuid             x   158,939 ops/sec ±0.61% (93 runs sampled)
-  hashids/fixed    x   330,830 ops/sec ±2.90% (96 runs sampled)
-  nanoid           x   433,802 ops/sec ±0.34% (93 runs sampled)
-  foid             x 2,446,284 ops/sec ±0.39% (97 runs sampled)
+  cuid                 x    160,075 ops/sec ±1.35% (90 runs sampled)
+  hashids/fixed        x    337,598 ops/sec ±0.13% (98 runs sampled)
+  nanoid/non-secure    x  2,246,032 ops/sec ±0.31% (96 runs sampled)
+  nanoid               x    431,758 ops/sec ±0.71% (98 runs sampled)
+  foid                 x  2,417,171 ops/sec ±0.33% (96 runs sampled)
 
 
 Validation (length = 36):
-  ✔ uuid/v1          (example: "9dbdc9b0-5d27-11ea-a6bf-3be13a6bca5a")
-  ✔ uuid/v4          (example: "d1846c4b-6794-4c1e-89ea-30ed21e24c40")
-  ✔ hashids/fixed    (example: "EVq3Pr9JOyLkQWjnegYbwZ1p0GDXNmRBlAxg")
-  ✔ @lukeed/uuid     (example: "eb9fac31-53af-4699-9205-9b1d23474b6b")
-  ✔ nanoid           (example: "wf9fq-M_-1SCrSBQEBOtFhLgGm2LLTeuiJKl")
-  ✔ foid             (example: "k98vi4c6lf77oc8ngerrkv3xtr0nvtkup1mg")
+  ✔ uuid/v1              (example: "e3304870-5e48-11ea-93a8-0d27db144950")
+  ✔ uuid/v4              (example: "8f18bfb3-45f9-4c14-b949-87ed98cc41c1")
+  ✔ hashids/fixed        (example: "EVq3Pr9JOyLkQWjnegYbwZ1p0GDXNmRBlAxg")
+  ✔ @lukeed/uuid         (example: "c47bd63e-7975-47a6-96c2-ea6744c4e0c2")
+  ✔ nanoid/non-secure    (example: "4yBHuV2LX1z6uYF2htLIq1dBK-Bqt4r-Il-Q")
+  ✔ nanoid               (example: "I01YCalTULD9SorD6lWzDp30hL1_JbULU8UR")
+  ✔ foid                 (example: "599tis8bq39vxc95vkfxxr80gwi1mnhuiorz")
 Benchmark (length = 36):
-  uuid/v1          x 1,509,781 ops/sec ±0.16% (98 runs sampled)
-  uuid/v4          x   335,638 ops/sec ±1.02% (91 runs sampled)
-  hashids/fixed    x   322,714 ops/sec ±0.20% (97 runs sampled)
-  @lukeed/uuid     x 6,368,185 ops/sec ±0.23% (96 runs sampled)
-  nanoid           x   399,746 ops/sec ±0.26% (96 runs sampled)
-  foid             x 1,772,239 ops/sec ±0.18% (97 runs sampled)
+  uuid/v1              x  1,485,783 ops/sec ±0.27% (97 runs sampled)
+  uuid/v4              x    331,019 ops/sec ±0.86% (91 runs sampled)
+  hashids/fixed        x    314,980 ops/sec ±2.07% (96 runs sampled)
+  @lukeed/uuid         x  6,355,015 ops/sec ±0.43% (94 runs sampled)
+  nanoid/non-secure    x  1,658,583 ops/sec ±0.23% (95 runs sampled)
+  nanoid               x    402,224 ops/sec ±0.15% (97 runs sampled)
+  foid                 x  1,719,753 ops/sec ±0.24% (95 runs sampled)
 ```
+
 
 ## Related
 
