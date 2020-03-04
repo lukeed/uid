@@ -1,12 +1,12 @@
 {
-  "name": "foid",
+  "name": "uid",
   "version": "1.0.0",
-  "repository": "lukeed/foid",
-  "description": "A tiny (134B) and fast utility to generate random IDs of fixed length",
+  "repository": "lukeed/uid",
+  "description": "A tiny (134B) and fast utility to randomize unique IDs of fixed length",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "types": "foid.d.ts",
+  "types": "uid.d.ts",
   "license": "MIT",
   "author": {
     "name": "Luke Edwards",
@@ -29,7 +29,9 @@
     "id",
     "uid",
     "uuid",
-    "random"
+    "random",
+    "generate",
+    "foid"
   ],
   "devDependencies": {
     "bundt": "1.0.0",
