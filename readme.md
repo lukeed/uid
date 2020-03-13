@@ -103,6 +103,7 @@ Benchmark (length = 36):
 
 ## Related
 
+- [hexoid](https://github.com/lukeed/hexoid) - A slightly larger (190B) but extremely fast variant of this module with a different API
 - [@lukeed/uuid](https://github.com/lukeed/uuid) - A tiny (230B), fast, and cryptographically secure UUID (V4) generator for Node and the browser
 
 ## Credits
