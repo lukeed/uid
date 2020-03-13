@@ -4,20 +4,20 @@ const Hash = require('hashids/cjs');
 const { Suite } = require('benchmark');
 const nanoid2 = require('nanoid/non-secure');
 const nanoid = require('nanoid');
-const foid = require('../dist');
+const uid = require('../dist');
 
 const size_11 = {
 	'hashids/fixed': new Hash('', 11),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 11),
 	'nanoid': nanoid.bind(nanoid, 11),
-	'foid': foid.bind(foid, 11),
+	'uid': uid.bind(uid, 11),
 };
 
 const size_16 = {
 	'hashids/fixed': new Hash('', 16),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 16),
 	'nanoid': nanoid.bind(nanoid, 16),
-	'foid': foid.bind(foid, 16),
+	'uid': uid.bind(uid, 16),
 };
 
 const size_25 = {
@@ -25,7 +25,7 @@ const size_25 = {
 	'hashids/fixed': new Hash('', 25),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 25),
 	'nanoid': nanoid.bind(nanoid, 25),
-	'foid': foid.bind(foid, 25),
+	'uid': uid.bind(uid, 25),
 };
 
 const size_36 = {
@@ -35,7 +35,7 @@ const size_36 = {
 	'@lukeed/uuid': require('@lukeed/uuid'),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 36),
 	'nanoid': nanoid.bind(nanoid, 36),
-	'foid': foid.bind(foid, 36),
+	'uid': uid.bind(uid, 36),
 };
 
 function pad(str) {
