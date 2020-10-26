@@ -1,80 +1,59 @@
-import test from 'tape';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
 import foid from '../src';
 
-test('exports', t => {
-	t.is(typeof foid, 'function', 'exports function');
-	t.end();
+test('exports', () => {
+	assert.type(foid, 'function', 'exports function');
 });
 
 
-test('returns', t => {
+test('returns', () => {
 	let output = foid();
-	t.is(typeof output, 'string', 'returns a string');
-	t.is(output.length, 11, '~> has 11 characters (default)');
-	t.end();
+	assert.type(output, 'string', 'returns a string');
+	assert.is(output.length, 11, '~> has 11 characters (default)');
 });
 
 
-test('length :: 4', t => {
-	let i=0, tmp, bool=true;
-
+test('length :: 4', () => {
+	let i=0, tmp;
 	for (; i < 1e3; i++) {
 		tmp = foid(4);
-		bool = bool && tmp.length === 4;
-		if (!bool) {
-			t.fail(`"${tmp}" is not 4 characters!`);
-			break;
-		}
+		assert.is(tmp.length, 4, `"${tmp}" is not 4 characters!`);
 	}
 
-	t.true(bool, '~> produced 1000 IDs w/ 4 chars each');
-
-	t.end();
+	assert.ok('~> produced 1000 IDs w/ 4 chars each');
 });
 
 
-test('length :: 5', t => {
-	let i=0, tmp, bool=true;
-
+test('length :: 5', () => {
+	let i=0, tmp;
 	for (; i < 1e3; i++) {
 		tmp = foid(5);
-		bool = bool && tmp.length === 5;
-		if (!bool) {
-			t.fail(`"${tmp}" is not 5 characters!`);
-			break;
-		}
+		assert.is(tmp.length, 5, `"${tmp}" is not 5 characters!`);
 	}
 
-	t.true(bool, '~> produced 1000 IDs w/ 5 chars each');
-
-	t.end();
+	assert.ok('~> produced 1000 IDs w/ 5 chars each');
 });
 
 
-test('length :: 6', t => {
-	let i=0, tmp, bool=true;
-
+test('length :: 6', () => {
+	let i=0, tmp;
 	for (; i < 1e3; i++) {
 		tmp = foid(6);
-		bool = bool && tmp.length === 6;
-		if (!bool) {
-			t.fail(`"${tmp}" is not 6 characters!`);
-			break;
-		}
+		assert.is(tmp.length, 6, `"${tmp}" is not 6 characters!`);
 	}
 
-	t.true(bool, '~> produced 1000 IDs w/ 6 chars each');
-
-	t.end();
+	assert.ok('~> produced 1000 IDs w/ 6 chars each');
 });
 
 
-test('unique', t => {
-	t.not(foid(), foid(), '~> single');
+test('unique', () => {
+	assert.is.not(foid(), foid(), '~> single');
 
 	let items = new Set();
 	for (let i=1e6; i--;) items.add(foid());
-	t.is(items.size, 1e6, '~> 1,000,000 uniques');
-
-	t.end();
+	assert.is(items.size, 1e6, '~> 1,000,000 uniques');
 });
+
+
+test.run();
