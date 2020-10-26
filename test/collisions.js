@@ -1,4 +1,4 @@
-const uid = require('../../dist');
+const uid = require('../dist');
 
 // $ node test/collisions 16 1e7
 const [len=8, cycles] = process.argv.slice(2);
@@ -20,4 +20,5 @@ for (; i < total; i++) {
 
 console.log('iterations:', total.toLocaleString());
 console.log('collisions:', duplicates.toLocaleString());
+console.log('~> uniques:', sentry.size.toLocaleString());
 console.log('percentage:', (duplicates / total * 100).toFixed(4) + '%');
