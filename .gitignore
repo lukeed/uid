@@ -6,4 +6,5 @@ node_modules
 *.log
 
 /dist
+/secure
 /index.d.ts

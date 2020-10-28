@@ -18,7 +18,6 @@
   },
   "scripts": {
     "build": "bundt",
-    "pretest": "npm run build",
     "test": "uvu -r esm test -i collisions"
   },
   "files": [
@@ -33,8 +32,15 @@
     "generate",
     "foid"
   ],
+  "modes": {
+    "secure": "src/secure.js",
+    "default": "src/index.js"
+  },
+  "dependencies": {
+    "@lukeed/csprng": "^1.0.0"
+  },
   "devDependencies": {
-    "bundt": "1.0.0",
+    "bundt": "1.1.1",
     "esm": "3.2.25",
     "uvu": "0.3.4"
   }
