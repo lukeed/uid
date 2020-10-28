@@ -6,7 +6,7 @@
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "types": "uid.d.ts",
+  "types": "index.d.ts",
   "license": "MIT",
   "author": {
     "name": "Luke Edwards",
