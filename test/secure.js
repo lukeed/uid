@@ -1,6 +1,6 @@
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
-import uid from '../src';
+import uid from '../src/secure';
 
 test('exports', () => {
 	assert.type(uid, 'function', 'exports function');
