@@ -20,8 +20,25 @@
     "build": "bundt",
     "test": "uvu -r esm test -i collisions"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./single": {
+      "import": "./single/index.mjs",
+      "require": "./single/index.js"
+    },
+    "./secure": {
+      "import": "./secure/index.mjs",
+      "require": "./secure/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "*.d.ts",
+    "single",
+    "secure",
     "dist"
   ],
   "keywords": [
@@ -30,6 +47,8 @@
     "uuid",
     "random",
     "generate",
+    "secure",
+    "crypto",
     "foid"
   ],
   "modes": {
