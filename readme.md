@@ -1,16 +1,16 @@
 # uid [![build status](https://badgen.net/github/status/lukeed/uid)](https://github.com/lukeed/uid/actions) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/uid)](https://codecov.io/gh/lukeed/uid)
 
-> A tiny (134B) and [fast](#benchmarks) utility to randomize unique IDs of fixed length
+> A tiny (130B to 205B) and [fast](#benchmarks) utility to randomize unique IDs of fixed length
 
 _**Fast object IDs.** Available for Node.js and the browser._<br>Generate randomized output strings of fixed length using lowercase alphanumeric characters (`a-z0-9`).
 
-> **Notice:** Please note that this is not a cryptographically secure (CSPRNG) generator.
+This module offers multiple [modes](#modes) for your needs:
 
-Additionally, this module is delivered as:
+* [`uid`](#uid)<br>_The default is "non-secure", which uses `Math.random` to produce UUIDs._
+* [`uid/secure`](#uidsecure)<br>_The "secure" mode produces cryptographically secure (CSPRNG) UUIDs using the current environment's `crypto` module._
+* [`uid/single`](#uidsingle)<br>_The "single" mode does not maintain an internal cache, which makes it ideal for short-lived environments._
 
-* **CommonJS**: [`dist/index.js`](https://unpkg.com/uid/dist/index.js)
-* **ES Module**: [`dist/index.mjs`](https://unpkg.com/uid/dist/index.mjs)
-* **UMD**: [`dist/index.min.js`](https://unpkg.com/uid/dist/index.min.js)
+Additionally, this module is preconfigured for native ESM support in Node.js with fallback to CommonJS. It will also work with any Rollup and webpack configuration, regardless of the "mode" selected.
 
 ## Install
 
@@ -18,11 +18,35 @@ Additionally, this module is delivered as:
 $ npm install --save uid
 ```
 
+## Modes
+
+There are three "versions" of `uid` available:
+
+#### `uid`
+> **Size (gzip):** 174 bytes<br>
+> **Availability:** [CommonJS](https://unpkg.com/uid/dist/index.js), [ES Module](https://unpkg.com/uid/dist/index.mjs), [UMD](https://unpkg.com/uid/dist/index.min.js)
+
+Relies on `Math.random`, which means that, while faster, this mode **is not** cryptographically secure. <br>Works in Node.js and all browsers.
+
+#### `uid/secure`
+> **Size (gzip):** 205 bytes<br>
+> **Availability:** [CommonJS](https://unpkg.com/uid/secure/index.js), [ES Module](https://unpkg.com/uid/secure/index.mjs), [UMD](https://unpkg.com/uid/secure/index.min.js)
+
+Relies on the environment's `crypto` module in order to produce cryptographically secure (CSPRNG) values. <br>Works in all versions of Node.js. Works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
+
+#### `uid/single`
+> **Size (gzip):** 131 bytes<br>
+> **Availability:** [CommonJS](https://unpkg.com/uid/single/index.js), [ES Module](https://unpkg.com/uid/single/index.mjs), [UMD](https://unpkg.com/uid/single/index.min.js)
+
+Relies on `Math.random`, which means that this mode **is not** cryptographically secure. <br>Does **not** maintain an internal buffer, which makes this mode ideal for single-use and/or short-lived environments. <br>Works in Node.js and all browsers.
+
 
 ## Usage
 
 ```js
-import uid from 'uid';
+import { uid } from 'uid';
+// or: import { uid } from 'uid/secure';
+// or: import { uid } from 'uid/single';
 
 // length = 11 (default)
 uid(); //=> 'fsm2vsgo1pr'
@@ -140,6 +164,19 @@ Benchmark (length = 36):
   uid/single           x  1,646,199 ops/sec ±1.17% (66 runs sampled)
   uid                  x 22,779,817 ops/sec ±0.66% (67 runs sampled)
 ```
+
+## Performance
+
+The reason `uid` and `uid/secure` are so much faster than its alternatives is two-fold:
+
+1) It composes an output with hexadecimal pairs (from a cached dictionary) instead of single characters.
+2) It allocates a larger Buffer/ArrayBuffer up front (expensive) and slices off chunks as needed (cheap).
+
+The `uid/secure` module maintains an internal ArrayBuffer of 4096 bytes, which supplies **256** `uid()` invocations. However, the default module (`uid`) preallocates **512** invocations using less memory upfront. Both implementations will regenerate its internal allocation as needed.
+
+Larger buffers would result in higher performance over time, but I found these to be a good balance of performance and memory space.
+
+> **Note:** If you want to don't want to preallocate memory, and do not need a CSPRNG, check out the `uid/single` mode.
 
 
 ## Related
