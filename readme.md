@@ -2,7 +2,7 @@
 
 > A tiny (130B to 205B) and [fast](#benchmarks) utility to randomize unique IDs of fixed length
 
-_**Fast object IDs.** Available for Node.js and the browser._<br>Generate randomized output strings of fixed length using lowercase alphanumeric characters (`a-z0-9`).
+_**Fast object IDs.** Available for Node.js and the browser._<br>Generate **randomized** output strings of fixed length using lowercase alphanumeric characters (`a-z0-9`). To produce IDs in UUID.V4 format, please see [`@lukeed/uuid`](https://github.com/lukeed/uuid).
 
 This module offers multiple [modes](#modes) for your needs:
 
