@@ -34,7 +34,8 @@
   ],
   "modes": {
     "secure": "src/secure.js",
-    "default": "src/index.js"
+    "default": "src/index.js",
+    "single": "src/single.js"
   },
   "dependencies": {
     "@lukeed/csprng": "^1.0.0"
