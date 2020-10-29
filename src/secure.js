@@ -3,7 +3,7 @@ import { random } from '@lukeed/csprng';
 var IDX=256, HEX=[], SIZE=256*16, BUFFER;
 while (IDX--) HEX[IDX] = (IDX + 256).toString(16).substring(1);
 
-export default function (len) {
+export function uid(len) {
 	var str='', tmp=(len || 11), num=(1+tmp) / 2 | 0;
 	if (!BUFFER || ((IDX + num) > SIZE)) {
 		BUFFER = random(SIZE);
