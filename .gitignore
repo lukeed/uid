@@ -9,3 +9,5 @@ node_modules
 /secure
 /index.d.ts
 /single
+
+/bench/**/bundle.js
