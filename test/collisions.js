@@ -1,4 +1,4 @@
-const uid = require('../dist');
+const { uid } = require('../dist');
 
 // $ node test/collisions 16 1e7
 const [len=8, cycles] = process.argv.slice(2);
