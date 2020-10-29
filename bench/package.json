@@ -1,11 +1,11 @@
 {
   "private": true,
   "devDependencies": {
-    "@lukeed/uuid": "1.0.1",
+    "@lukeed/uuid": "2.0.0",
     "benchmark": "2.1.4",
     "cuid": "2.1.8",
     "hashids": "2.2.1",
-    "nanoid": "2.1.11",
-    "uuid": "7.0.1"
+    "nanoid": "3.1.16",
+    "uuid": "8.3.1"
   }
 }

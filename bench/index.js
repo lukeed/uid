@@ -1,40 +1,51 @@
 const uuid = require('uuid');
-const assert = require('assert');
-const Hash = require('hashids/cjs');
+const assert = require('uvu/assert');
+const HashID = require('hashids/cjs');
 const { Suite } = require('benchmark');
-const nanoid2 = require('nanoid/non-secure');
-const nanoid = require('nanoid');
-const uid = require('../dist');
+const { nanoid: nanoid2 } = require('nanoid/non-secure');
+const { nanoid } = require('nanoid');
+const { uid: single } = require('../single');
+const { uid: secure } = require('../secure');
+const { uid } = require('../dist');
 
 const size_11 = {
-	'hashids/fixed': new Hash('', 11),
+	'hashids/fixed': new HashID('', 11),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 11),
 	'nanoid': nanoid.bind(nanoid, 11),
+	'uid/secure': secure.bind(secure, 11),
+	'uid/single': single.bind(single, 11),
 	'uid': uid.bind(uid, 11),
 };
 
 const size_16 = {
-	'hashids/fixed': new Hash('', 16),
+	'hashids/fixed': new HashID('', 16),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 16),
 	'nanoid': nanoid.bind(nanoid, 16),
+	'uid/secure': secure.bind(secure, 16),
+	'uid/single': single.bind(single, 16),
 	'uid': uid.bind(uid, 16),
 };
 
 const size_25 = {
 	'cuid': require('cuid'),
-	'hashids/fixed': new Hash('', 25),
+	'hashids/fixed': new HashID('', 25),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 25),
 	'nanoid': nanoid.bind(nanoid, 25),
+	'uid/secure': secure.bind(secure, 25),
+	'uid/single': single.bind(single, 25),
 	'uid': uid.bind(uid, 25),
 };
 
 const size_36 = {
 	'uuid/v1': uuid.v1,
 	'uuid/v4': uuid.v4,
-	'hashids/fixed': new Hash('', 36),
-	'@lukeed/uuid': require('@lukeed/uuid'),
+	'hashids/fixed': new HashID('', 36),
 	'nanoid/non-secure': nanoid2.bind(nanoid2, 36),
 	'nanoid': nanoid.bind(nanoid, 36),
+	'@lukeed/uuid/secure': require('@lukeed/uuid/secure').v4,
+	'@lukeed/uuid': require('@lukeed/uuid').v4,
+	'uid/secure': secure.bind(secure, 36),
+	'uid/single': single.bind(single, 36),
 	'uid': uid.bind(uid, 36),
 };
 
@@ -53,8 +64,8 @@ function runner(group, size) {
 			const isHash = name.startsWith('hashids');
 			const output = isHash ? lib.encode(num++) : lib();
 
-			assert.deepStrictEqual(typeof output, 'string', 'returns string');
-			assert.notDeepEqual(output, isHash ? lib.encode(num++) : lib(), 'unqiue strings');
+			assert.type(output, 'string', 'returns string');
+			assert.is.not(output, isHash ? lib.encode(num++) : lib(), 'unqiue strings');
 
 			console.log('  ✔', pad(name), `(example: "${output}")`);
 		} catch (err) {
