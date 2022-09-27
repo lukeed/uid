@@ -22,14 +22,17 @@
   },
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
     "./single": {
+      "types": "./single/index.d.ts",
       "import": "./single/index.mjs",
       "require": "./single/index.js"
     },
     "./secure": {
+      "types": "./secure/index.d.ts",
       "import": "./secure/index.mjs",
       "require": "./secure/index.js"
     },
