@@ -26,19 +26,19 @@ There are three "versions" of `uid` available:
 > **Size (gzip):** 174 bytes<br>
 > **Availability:** [CommonJS](https://unpkg.com/uid/dist/index.js), [ES Module](https://unpkg.com/uid/dist/index.mjs), [UMD](https://unpkg.com/uid/dist/index.min.js)
 
-Relies on `Math.random`, which means that, while faster, this mode **is not** cryptographically secure. <br>Works in Node.js and all browsers.
+Relies on `Math.random`, which means that, while faster, this mode **is not** cryptographically secure. <br>Works in Node.js and all browsers. <br>Alphabet: ***Hexadecimal***
 
 #### `uid/secure`
 > **Size (gzip):** 205 bytes<br>
 > **Availability:** [CommonJS](https://unpkg.com/uid/secure/index.js), [ES Module](https://unpkg.com/uid/secure/index.mjs), [UMD](https://unpkg.com/uid/secure/index.min.js)
 
-Relies on the environment's `crypto` module in order to produce cryptographically secure (CSPRNG) values. <br>Works in all versions of Node.js. Works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
+Relies on the environment's `crypto` module in order to produce cryptographically secure (CSPRNG) values. <br>Works in all versions of Node.js. Works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues). <br>Alphabet: ***Hexadecimal***
 
 #### `uid/single`
 > **Size (gzip):** 131 bytes<br>
 > **Availability:** [CommonJS](https://unpkg.com/uid/single/index.js), [ES Module](https://unpkg.com/uid/single/index.mjs), [UMD](https://unpkg.com/uid/single/index.min.js)
 
-Relies on `Math.random`, which means that this mode **is not** cryptographically secure. <br>Does **not** maintain an internal buffer, which makes this mode ideal for single-use and/or short-lived environments. <br>Works in Node.js and all browsers.
+Relies on `Math.random`, which means that this mode **is not** cryptographically secure. <br>Does **not** maintain an internal buffer, which makes this mode ideal for single-use and/or short-lived environments. <br>Works in Node.js and all browsers. <br>Alphabet: ***Alphanumeric***
 
 
 ## Usage
@@ -49,13 +49,13 @@ import { uid } from 'uid';
 // or: import { uid } from 'uid/single';
 
 // length = 11 (default)
-uid(); //=> 'fsm2vsgo1pr'
-uid(); //=> 'gf34sezvoh6'
+uid(); //=> 'c92054d1dd6'
+uid(); //=> 'ac84bbb3728'
 
 // customize length
-uid(16); //=> 'zbb6cc3ay26omrdz'
-uid(25); //=> 'lljjmo3f39rnjudsgqvzta1rb'
-uid(32); //=> 'yrfiw88qlq1fgpm40lguz6u43gksfj4a'
+uid(16); //=> '8234dbf9a7dcec3b'
+uid(25); //=> '4bbb3728b7a00a12209ec5ff5'
+uid(32); //=> 'dcbc3e65506a7e6f15d30a357e884432'
 ```
 
 
