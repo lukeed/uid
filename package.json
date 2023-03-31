@@ -1,6 +1,6 @@
 {
   "name": "uid",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "repository": "lukeed/uid",
   "description": "A tiny (130B to 205B) and fast utility to randomize unique IDs of fixed length",
   "unpkg": "dist/index.min.js",
