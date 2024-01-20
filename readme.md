@@ -1,4 +1,4 @@
-# uid [![CI](https://github.com/lukeed/uid/workflows/CI/badge.svg)](https://github.com/lukeed/uid/actions) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/uid)](https://codecov.io/gh/lukeed/uid)
+# uid [![CI](https://github.com/lukeed/uid/workflows/CI/badge.svg)](https://github.com/lukeed/uid/actions) [![licenses](https://licenses.dev/b/npm/uid)](https://licenses.dev/npm/uid) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/uid)](https://codecov.io/gh/lukeed/uid)
 
 > A tiny (130B to 205B) and [fast](#benchmarks) utility to randomize unique IDs of fixed length
 
