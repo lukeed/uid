@@ -1,13 +1,14 @@
-var IDX=256, HEX=[], SIZE=256, BUFFER;
-while (IDX--) HEX[IDX] = (IDX + 256).toString(16).substring(1);
+const HEX = '0123456789abcdef';
+const SIZE = 256;
+var idx = SIZE, buffer;
 
 export function uid(len) {
 	var i=0, tmp=(len || 11);
-	if (!BUFFER || ((IDX + tmp) > SIZE*2)) {
-		for (BUFFER='',IDX=0; i < SIZE; i++) {
-			BUFFER += HEX[Math.random() * 256 | 0];
+	if (!buffer || ((idx + tmp) > SIZE*2)) {
+		for (buffer='',idx=0; i < SIZE; i++) {
+			buffer += HEX[Math.random() * 16 | 0] + HEX[Math.random() * 16 | 0];
 		}
 	}
 
-	return BUFFER.substring(IDX, IDX++ + tmp);
+	return buffer.substring(idx, idx += tmp);
 }

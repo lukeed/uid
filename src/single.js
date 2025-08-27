@@ -1,8 +1,7 @@
-var IDX=36, HEX='';
-while (IDX--) HEX += IDX.toString(36);
+const HEX = '0123456789abcdefghijklmnopqrstuvwxyz';
 
 export function uid(len) {
-	var str='', num = len || 11;
-	while (num--) str += HEX[Math.random() * 36 | 0];
-	return str;
+	var num = len || 11, chars = [];
+	while (num--) chars.push(HEX[Math.random() * 36 | 0]);
+	return chars.join('');
 }

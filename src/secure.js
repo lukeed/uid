@@ -1,18 +1,19 @@
 import { random } from '@lukeed/csprng';
 
-var IDX=256, HEX=[], SIZE=256*16, BUFFER;
-while (IDX--) HEX[IDX] = (IDX + 256).toString(16).substring(1);
+const HEX = '0123456789abcdef';
+const SIZE = 256 * 16;
+var idx = SIZE, buffer;
 
 export function uid(len) {
-	var str='', tmp=(len || 11), num=(1+tmp) / 2 | 0;
-	if (!BUFFER || ((IDX + num) > SIZE)) {
-		BUFFER = random(SIZE);
-		IDX = 0;
+	var tmp=(len || 11), num=(1+tmp) / 2 | 0, chars=[];
+	if (!buffer || ((idx + num) > SIZE)) {
+		buffer = random(SIZE);
+		idx = 0;
 	}
 
 	while (num--) {
-		str += HEX[BUFFER[IDX++]];
+		chars.push(HEX[buffer[idx] >> 4] + HEX[buffer[idx++] & 15]);
 	}
 
-	return str.substring(0, tmp);
+	return chars.join('').substring(0, tmp);
 }
