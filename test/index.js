@@ -56,4 +56,41 @@ test('unique', () => {
 });
 
 
+test('length :: boundary', () => {
+	assert.is(uid(1).length, 1, '~> length=1');
+	assert.is(uid().length, 11, '~> default length=11');
+	assert.is(uid(32).length, 32, '~> length=32');
+
+	let i=0, tmp;
+	for (; i < 1e3; i++) {
+		tmp = uid(1);
+		assert.is(tmp.length, 1, `"${tmp}" is not 1 character!`);
+	}
+	assert.ok('~> produced 1000 IDs w/ 1 char each');
+
+	for (i=0; i < 1e3; i++) {
+		tmp = uid(32);
+		assert.is(tmp.length, 32, `"${tmp}" is not 32 characters!`);
+	}
+	assert.ok('~> produced 1000 IDs w/ 32 chars each');
+});
+
+
+test('alphabet', () => {
+	let i=0, tmp;
+	for (; i < 1e3; i++) {
+		tmp = uid();
+		assert.ok(/^[0-9a-f]+$/.test(tmp), `"${tmp}" contains non-hex characters!`);
+	}
+	assert.ok('~> produced 1000 IDs w/ hex chars only');
+});
+
+
+test('unique :: 32', () => {
+	let items = new Set();
+	for (let i=1e4; i--;) items.add(uid(32));
+	assert.is(items.size, 1e4, '~> 10,000 uniques (length=32)');
+});
+
+
 test.run();
