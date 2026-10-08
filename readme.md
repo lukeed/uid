@@ -70,7 +70,7 @@ Creates a new random identifer of fixed length.
 Type: `Number`<br>
 Default: `11`
 
-Then length of the output string.
+The length of the output string. Use a nonnegative safe integer. Omitting it or passing `0` uses the default length of `11`. Invalid lengths throw a `RangeError`.
 
 > **Important:** Your risk of collisions decreases with longer strings!
 

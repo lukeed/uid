@@ -56,4 +56,17 @@ test('unique', () => {
 });
 
 
+test('length beyond the preallocated buffer', () => {
+	for (const length of [512, 513, 1024, 8191, 8192, 8193, 10001]) {
+		const output = uid(length);
+		assert.is(output.length, length);
+		assert.ok(/^[a-f0-9]+$/.test(output));
+
+		const next = uid(11);
+		assert.is(next.length, 11);
+		assert.ok(/^[a-f0-9]+$/.test(next));
+	}
+});
+
+
 test.run();
